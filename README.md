@@ -10,4 +10,6 @@ Keep a headless Linux computer connected as your network environment changes
 - [ ] Automated build
 
 
+The idea is that if your device is unable to connect to wifi, it will broadcast it's own ssid, run a websever, allow you to add new wifi creds then be connected again. Never having to use a terminal or plug into router.
+
 http://www.raspberryconnect.com/network/item/331-raspberry-pi-auto-wifi-hotspot-switch-no-internet-routing
