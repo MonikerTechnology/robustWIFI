@@ -3,11 +3,15 @@
 
 sudo apt-get install hostapd -y 
 sudo apt-get install dnsmasq -y
+sudo apt-get install apache2 -y
 
 sudo systemctl disable hostapd
 sudo systemctl disable dnsmasq
 
 
+#########################################
+
+# Configure hostapd
 FILEPATH="/etc/hostapd/hostapd.conf"
 echo "Configuring $FILEPATH"
 echo "#2.4GHz setup wifi 80211 b,g,n
@@ -31,10 +35,13 @@ country_code=US
 ieee80211n=1
 ieee80211d=1" > $FILEPATH
 
+#########################################
 
 FILEPATH="/etc/default/hostapd"
 echo "Configuring $FILEPATH"
 echo "DAEMON_CONF="/etc/hostapd/hostapd.conf" >> $FILEPATH
+
+#########################################
 
 FILEPATH="/etc/dnsmasq.conf"
 echo "Configuring $FILEPATH"
@@ -46,6 +53,7 @@ interface=wlan0
 bind-interfaces
 dhcp-range=10.0.0.50,10.0.0.150,12h" >> $FILEPATH
 
+#########################################
 
 # Back up network/interfaces
 sudo cp /etc/network/interfaces /etc/network/interfaces-backup
@@ -57,11 +65,44 @@ echo "# interfaces(5) file used by ifup(8) and ifdown(8)
 # Include files from /etc/network/interfaces.d: 
 source-directory /etc/network/interfaces.d" > $FILEPATH
 
+#########################################
 
+# Configure dhcpcd
 FILEPATH="/etc/dhcpcd.conf"
 echo "Configuring $FILEPATH"
 echo "nohook wpa_supplicant" > $FILEPATH
 
+#########################################
+
+# Configure autohotspot script
+sudo cp autohotspot.sh /usr/bin/
+sudo chmod +x /usr/bin/autohotspot
+sed -i "3i$var" test
+
+sed -i '3imv /wifi/wifi.config /etc/wpa_supplicant/wpa_supplicant.conf 2> /dev/null && echo "New wifi settings!" || echo "no new wifi settings"'
+sed -i '3iecho "New wifi settings found, overwriting wpa_supplicant.conf"' test
+
+#########################################
+
+# Configure apache2
+sudo a2enmod cgi
+sudo cp index.html /var/www/html/
+sudo cp getWIFI.py /usr/lib/cgi-bin/ 
+chmod 755 /usr/lib/cgi-bin/getWIFI.py 
+
+sudo mkdir /wifi
+sudo chown www-data /wifi
+sudo chmod 300 /wifi
+
+Sudo systemctl restart apache2
+
+#########################################
+
+# Configure service file
+FILEPATH="/etc/systemd/system/autohotspot.service"
+echo "Configuring $FILEPATH"
+sudo cp autohotspot.service ${FILEPATH}
+sudo systemctl enable autohotspot.service
 
 
 
