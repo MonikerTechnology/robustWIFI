@@ -76,6 +76,7 @@ echo "nohook wpa_supplicant" > $FILEPATH
 #########################################
 
 # Configure autohotspot script
+echo "Configuring autohotspot script"
 sudo cp autohotspot.sh /usr/bin/
 sudo chmod +x /usr/bin/autohotspot
 sed -i "3i$var" test
@@ -86,6 +87,7 @@ sed -i '3iecho "New wifi settings found, overwriting wpa_supplicant.conf"' test
 #########################################
 
 # Configure apache2
+echo "Configuring apache2"
 sudo a2enmod cgi
 sudo cp index.html /var/www/html/
 sudo cp getWIFI.py /usr/lib/cgi-bin/ 
@@ -95,11 +97,12 @@ sudo mkdir /wifi
 sudo chown www-data /wifi
 sudo chmod 300 /wifi
 
-Sudo systemctl restart apache2
+sudo systemctl restart apache2
 
 #########################################
 
 # Configure service file
+echo "Configuring autohotspot.service"
 FILEPATH="/etc/systemd/system/autohotspot.service"
 echo "Configuring $FILEPATH"
 sudo cp autohotspot.service ${FILEPATH}
