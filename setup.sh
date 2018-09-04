@@ -77,7 +77,7 @@ echo "nohook wpa_supplicant" > $FILEPATH
 
 # Configure autohotspot script
 echo "Configuring autohotspot script"
-sudo cp autohotspot.sh /usr/bin/
+sudo cp autohotspot /usr/bin/autohotspot
 sudo chmod +x /usr/bin/autohotspot.sh
 
 
