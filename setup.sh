@@ -92,7 +92,7 @@ echo "Configuring apache2"
 sudo a2enmod cgi
 sudo cp index.html /var/www/html/
 sudo cp getWIFI.py /usr/lib/cgi-bin/ 
-chmod 755 /usr/lib/cgi-bin/getWIFI.py 
+sudo chmod 755 /usr/lib/cgi-bin/getWIFI.py 
 
 sudo mkdir /wifi
 sudo chown www-data /wifi
