@@ -83,7 +83,7 @@ sudo chmod +x /usr/bin/autohotspot.sh
 
 # Add a line to /usr/bin/autohotspot.sh to pull new wifi configs
 sudo sed -i '3imv /wifi/wifi.conf /etc/wpa_supplicant/wpa_supplicant.conf 2> /dev/null && echo "New wifi settings!" || echo "no new wifi settings"' /usr/bin/autohotspot.sh
-sudo sed -i '3iecho "New wifi settings found, overwriting wpa_supplicant.conf"' /usr/bin/autohotspot.sh
+sudo sed -i '3i#"New wifi settings found, overwriting wpa_supplicant.conf"' /usr/bin/autohotspot.sh
 
 #########################################
 
