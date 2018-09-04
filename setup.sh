@@ -40,7 +40,7 @@ ieee80211d=1" > $FILEPATH
 
 FILEPATH="/etc/default/hostapd"
 echo "Configuring $FILEPATH"
-echo "DAEMON_CONF="/etc/hostapd/hostapd.conf" >> $FILEPATH
+echo DAEMON_CONF="/etc/hostapd/hostapd.conf" >> $FILEPATH
 
 #########################################
 
