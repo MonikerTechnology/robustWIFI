@@ -108,6 +108,8 @@ FILEPATH="/etc/systemd/system/autohotspot.service"
 echo "Configuring $FILEPATH"
 sudo cp autohotspot.service ${FILEPATH}
 sudo systemctl enable autohotspot.service
+sudo systemctl start autohotspot.service
+
 
 
 
