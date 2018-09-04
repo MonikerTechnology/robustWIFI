@@ -45,13 +45,13 @@ echo "DAEMON_CONF="/etc/hostapd/hostapd.conf" >> $FILEPATH
 
 FILEPATH="/etc/dnsmasq.conf"
 echo "Configuring $FILEPATH"
-echo "#AutoHotspot Config
+echo '#AutoHotspot Config
 #stop DNSmasq from using resolv.conf
 no-resolv
 #Interface to use
 interface=wlan0
 bind-interfaces
-dhcp-range=10.0.0.50,10.0.0.150,12h" >> $FILEPATH
+dhcp-range=10.0.0.50,10.0.0.150,12h' >> $FILEPATH
 
 #########################################
 
@@ -59,11 +59,11 @@ dhcp-range=10.0.0.50,10.0.0.150,12h" >> $FILEPATH
 sudo cp /etc/network/interfaces /etc/network/interfaces-backup
 FILEPATH="/etc/network/interfaces"
 echo "Configuring $FILEPATH"
-echo "# interfaces(5) file used by ifup(8) and ifdown(8) 
+echo '# interfaces(5) file used by ifup(8) and ifdown(8) 
 # Please note that this file is written to be used with dhcpcd 
 # For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf' 
 # Include files from /etc/network/interfaces.d: 
-source-directory /etc/network/interfaces.d" > $FILEPATH
+source-directory /etc/network/interfaces.d' > $FILEPATH
 
 #########################################
 
