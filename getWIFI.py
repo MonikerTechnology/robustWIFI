@@ -1,16 +1,18 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
 
 # Import modules for CGI handling 
-import cgi, cgitb 
+import cgi, cgitb
+
 import sys
 
+
 # Create instance of FieldStorage 
-form = cgi.FieldStorage() 
-	
+form = cgi.FieldStorage()
+
 # Get data from fields
 SSID = form.getvalue('SSID')
-PSK  = form.getvalue('PSK')
-	
+PSK = form.getvalue('PSK')
+
 update = "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev"
 update += "\nupdate_config=1"
 update += "\ncountry=US"
