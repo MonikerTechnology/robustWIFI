@@ -1,14 +1,125 @@
 <html>
-	<title> Wifi Settings</title>
-	<body>
-	<form action = "/cgi-bin/getWIFI.py" method = "post">
-	SSID: <input type = "text" name = "SSID"><br />
-	PSK: <input type = "password" name = "PSK" />
-	
-	<input type = "submit" value = "Submit" />
-	</form>
-	
-	</body>
-	
-	
+<title> Wifi Settings</title>
+
+<head>
+    <style>
+        #grad1 {
+            /*height: 200px;*/
+            background-color: red;
+            /* For browsers that do not support gradients */
+            background-image: linear-gradient(to bottom right, red, blue);
+            /* Standard syntax (must be last) */
+        }
+
+        .button {
+            background-image: linear-gradient(90deg, rgb(27, 207, 210), rgb(74, 19, 184), rgb(98, 7, 103));
+            border: none;
+            color: white;
+            padding: 15px 64px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 10px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 30px;
+
+        }
+
+        #wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            color: maroon;
+            margin-left: 40px;
+        }
+
+
+
+        .login {
+            float: left;
+            width: 300px;
+            height: 400px;
+            margin: 0 auto;
+            border: 1px solid rgba(0, 0, 0, .2);
+            background: #ffffff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            /* bring your own prefixes */
+            transform: translate(-50%, -50%);
+            border-radius: 8px;
+        }
+        .label {
+            float: left;
+            margin: 1% 8%;
+        }
+        .foo {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin: 5px;
+            border: 1px solid rgba(0, 0, 0, .2);
+        }
+
+        .blue {
+            background: #13b4ff;
+        }
+
+        .purple {
+            background: #ab3fdd;
+        }
+
+        .wine {
+            background: #ae163e;
+        }
+
+        H2 {
+            text-align: center
+        }
+
+        input {
+            width: 84%;
+            padding: 12px 20px;
+            margin: 2% 8%;
+            box-sizing: border-box;
+          
+        }
+    </style>
+</head>
+
+<body id="grad1">
+
+
+
+    <div class="foo blue"></div>
+    <div class="foo purple"></div>
+    <div class="foo wine"></div>
+    <br>
+    <br>
+    <br>
+    <div class="login">
+        <H2>Enter WIFI Details</H2>
+        <form action="/cgi-bin/getWIFI.py" method="post">
+            <div class="label">SSID:</div>
+            
+            <br>
+            <input placeholder="SSID" type="text" name="SSID">
+            <br> 
+            <div class="label">PSK:</div>
+            <br>
+            <input placeholder="PSK" type="password" name="PSK" />
+            <br>
+            <div id="wrapper">
+                <input type="submit" class="button" value="Submit" />
+            </div>
+        </form>
+    </div>
+
+</body>
+
 </html>
