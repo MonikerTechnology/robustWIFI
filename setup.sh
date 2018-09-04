@@ -78,11 +78,12 @@ echo "nohook wpa_supplicant" > $FILEPATH
 # Configure autohotspot script
 echo "Configuring autohotspot script"
 sudo cp autohotspot.sh /usr/bin/
-sudo chmod +x /usr/bin/autohotspot
+sudo chmod +x /usr/bin/autohotspot.sh
 sed -i "3i$var" test
 
-sed -i '3imv /wifi/wifi.config /etc/wpa_supplicant/wpa_supplicant.conf 2> /dev/null && echo "New wifi settings!" || echo "no new wifi settings"'
-sed -i '3iecho "New wifi settings found, overwriting wpa_supplicant.conf"' test
+# Add a line to /usr/bin/autohotspot.sh to pull new wifi configs
+sed -i '3imv /wifi/wifi.config /etc/wpa_supplicant/wpa_supplicant.conf 2> /dev/null && echo "New wifi settings!" || echo "no new wifi settings"' /usr/bin/autohotspot.sh
+sed -i '3iecho "New wifi settings found, overwriting wpa_supplicant.conf"' /usr/bin/autohotspot.sh
 
 #########################################
 
