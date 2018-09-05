@@ -13,6 +13,7 @@ Keep a headless Linux computer connected as your network environment changes
 - [ ] TODO find solution for safer file permissions where www-data writes the sid and psk
 - [ ] TODO Add to run the script on a timer
 - [ ] TODO Change IP to 192.168.1.1 for easy access (Also change dhcp)
+- [ ] TODO ADD option to add network, remove network, overwrite network  
 
 
 The idea is that if your device is unable to connect to wifi, it will broadcast it's own ssid, run a websever, allow you to add new wifi creds then be connected again. Never having to use a terminal or plug into router.
