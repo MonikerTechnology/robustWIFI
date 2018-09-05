@@ -3,6 +3,7 @@ Keep a headless Linux computer connected as your network environment changes
 
 - [ ] TODO Enable disable apache2
 - [ ] TODO Encrypted psk before storing
+- [ ] TODO Add some data validation to SSID and PSK
 - [ ] TODO Auto redirect 
 - [ ] TODO Make it look nice
 - [ ] TODO add script to cron time?
